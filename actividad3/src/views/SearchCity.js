@@ -11,13 +11,15 @@ import './SearchCity.scss';
 
 class SearchCity extends Component {
   state = {
-    name: 'London',
+    name: '',
+    url: '',
   };
   render() {
     const { classes } = this.props;
     return (
       <form noValidate autoComplete="off">
         <TextField
+        id="TextField"
         required
         label="City"
         margin="normal"
@@ -28,7 +30,9 @@ class SearchCity extends Component {
             <LocationOn />
           </InputAdornment>,
         }} variant="filled" />
-        <Button variant="contained" color="primary">
+        <Button
+        variant="contained"
+        color="primary">
           Search
         </Button>
       </form>

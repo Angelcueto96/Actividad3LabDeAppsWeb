@@ -10,7 +10,6 @@ const App = () => (
     <div>
       <Header />
       <Route exact path="/" component={SearchCity} />
-      <Route path="/view-city" component={ViewCity} />
       <Footer />
     </div>
   </Router>
