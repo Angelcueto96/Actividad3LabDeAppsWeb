@@ -8,6 +8,7 @@ import LocationOn from '@material-ui/icons/LocationOn';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import Typography from '@material-ui/core/Typography';
 import './SearchCity.scss';
+var CityWeatherActions = require('../actions/CityWeatherActions');
 
 class SearchCity extends Component {
   state = {
@@ -16,6 +17,7 @@ class SearchCity extends Component {
   };
   queryCity(city) {
     console.log("delete called: " + city);
+    CityWeatherActions.getCity(city);
   }
   render() {
 

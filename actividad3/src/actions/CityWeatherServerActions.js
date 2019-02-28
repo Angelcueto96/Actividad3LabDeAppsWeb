@@ -1,5 +1,6 @@
 var AppDispatcher = require('../dispatcher/AppDispatcher');
-var TodoConstants = require('../constants/CityWeatherConstants');
+//var TodoConstants = require('../constants/CityWeatherConstants');
+var CityWeatherConstants = require('../constants/CityWeatherConstants');
 
 module.exports = {
 
