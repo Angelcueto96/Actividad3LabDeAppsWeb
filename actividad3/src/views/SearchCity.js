@@ -21,7 +21,7 @@ class SearchCity extends Component {
         <TextField
         id="TextField"
         required
-        label="City"
+        label="City, Country Code"
         margin="normal"
         value={this.state.name}
         InputProps={{

@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import Footer from './common/Footer';
 import Header from './common/Header';
 import SearchCity from "./views/SearchCity";
-import ViewCity from "./views/ViewCity";
 
 const App = () => (
   <Router>
