@@ -20,7 +20,9 @@ class SearchCity extends Component {
     CityWeatherActions.getCity(city);
   }
   render() {
-
+    const { city } = this.props.match.params;
+    console.log("The city from url is:");
+    console.log(city);
     const { classes } = this.props;
     return (
       <form noValidate autoComplete="off">

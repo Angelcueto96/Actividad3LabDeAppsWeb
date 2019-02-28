@@ -8,7 +8,7 @@ const App = () => (
   <Router>
     <div>
       <Header />
-      <Route exact path="/" component={SearchCity} />
+      <Route exact path="/:city" component={SearchCity} />
       <Footer />
     </div>
   </Router>

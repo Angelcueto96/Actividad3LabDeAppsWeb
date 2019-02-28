@@ -34,8 +34,9 @@ AppDispatcher.register(function(payload) {
 
   switch(action.actionType) {
 
-    case AppConstants.SEARCH_CITY:
-      _store.editing = true;
+    case AppConstants.GET_CITY_RESPONSE:
+      //_store.editing = true;
+      console.log("GET CITY  RESPONSE TRIGGERED");
       Store.emit(CHANGE_EVENT);
       break;
 
