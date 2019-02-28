@@ -8,13 +8,12 @@ import ViewCity from "./views/ViewCity";
 const App = () => (
   <Router>
     <div>
-      <Header/>
-      <Route exact path="/" component={Login} />
-      <Route path="/create-user" component={CreateUser} />
-      <Footer/>
+      <Header />
+      <Route exact path="/" component={SearchCity} />
+      <Route path="/view-city" component={ViewCity} />
+      <Footer />
     </div>
   </Router>
 );
-
 
 export default App;
