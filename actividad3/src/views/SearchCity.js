@@ -23,7 +23,12 @@ class SearchCity extends Component {
         required
         label="City, Country Code"
         margin="normal"
-        onChange={(name) => this.setState({name})}
+        onChange={(event) => {
+          console.log(event.target.value);
+          this.setState({name: event.target.value});
+        }
+        }
+
         value={this.state.name.value}
         InputProps={{
           endAdornment:
@@ -34,7 +39,7 @@ class SearchCity extends Component {
             
         <Button className="button"
         variant="contained"
-        onClick={() => { console.log('onClick'); }}
+        onClick={() => { console.log("tst: "+ this.state.name); }}
         color="primary">
           Search
         </Button>
