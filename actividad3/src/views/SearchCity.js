@@ -23,7 +23,8 @@ class SearchCity extends Component {
         required
         label="City, Country Code"
         margin="normal"
-        value={this.state.name}
+        onChange={(name) => this.setState({name})}
+        value={this.state.name.value}
         InputProps={{
           endAdornment:
           <InputAdornment position="end">
