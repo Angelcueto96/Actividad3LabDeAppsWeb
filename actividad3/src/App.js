@@ -1,30 +1,20 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-
-import logo from './logo.svg';
-import './App.css';
+import Footer from './common/Footer';
+import Header from './common/Header';
 import SearchCity from "./views/SearchCity";
 import ViewCity from "./views/ViewCity";
 
-class App extends Component {
-    render() {
-        return (
-            <Router>
-                <div>
-                    
+const App = () => (
+  <Router>
+    <div>
+      <Header/>
+      <Route exact path="/" component={Login} />
+      <Route path="/create-user" component={CreateUser} />
+      <Footer/>
+    </div>
+  </Router>
+);
 
-
-
-                    <Route exact path="/" component={SearchCity} />
-                    <Route path="/view-city" component={ViewCity} />
-
-
-                    
-                </div>
-
-            </Router>
-        );
-    }
-}
 
 export default App;
