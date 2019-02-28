@@ -13,6 +13,7 @@ var _store = {
 var CityWeatherStore = ObjectAssign( {}, EventEmitter.prototype, {
 
   addChangeListener: function(cb) {
+    console.log("Add Change Listener called");
     this.on(CHANGE_EVENT, cb);
   },
 
