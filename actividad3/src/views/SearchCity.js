@@ -4,12 +4,9 @@ import Button from '@material-ui/core/Button';
 import FormControl from '@material-ui/core/FormControl';
 import TextField from '@material-ui/core/TextField';
 import Icon from '@material-ui/core/Icon';
-
 import LocationOn from '@material-ui/icons/LocationOn';
-
 import InputAdornment from '@material-ui/core/InputAdornment';
 import Typography from '@material-ui/core/Typography';
-import AccessAlarmIcon from '@material-ui/icons/AccessAlarm';
 import './SearchCity.scss';
 
 class SearchCity extends Component {
