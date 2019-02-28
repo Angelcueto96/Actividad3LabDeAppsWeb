@@ -29,6 +29,8 @@ var CityWeatherStore = ObjectAssign( {}, EventEmitter.prototype, {
 AppDispatcher.register(function(payload) {
 
   var action = payload.action;
+  console.log("payload");
+  console.log(action);
 
   switch(action.actionType) {
 

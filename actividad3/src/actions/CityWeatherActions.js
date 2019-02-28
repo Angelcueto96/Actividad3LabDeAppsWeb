@@ -10,7 +10,7 @@ module.exports = {
       city: city,
   });
 
-    CityWeatherAPI.get();
+    CityWeatherAPI.get(city);
   }
 
 };
