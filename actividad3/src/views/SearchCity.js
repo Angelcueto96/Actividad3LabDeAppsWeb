@@ -14,7 +14,11 @@ class SearchCity extends Component {
     name: '',
     url: '',
   };
+  queryCity(city) {
+    console.log("delete called: " + city);
+  }
   render() {
+
     const { classes } = this.props;
     return (
       <form noValidate autoComplete="off">
@@ -39,13 +43,16 @@ class SearchCity extends Component {
             
         <Button className="button"
         variant="contained"
-        onClick={() => { console.log("tst: "+ this.state.name); }}
+        onClick={() => { console.log("tst: "+ this.state.name);
+      this.queryCity(this.state.name); }}
         color="primary">
           Search
         </Button>
       </form>
     );
   }
+
+
 }
 
 export default SearchCity;
