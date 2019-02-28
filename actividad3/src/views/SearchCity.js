@@ -33,6 +33,7 @@ class SearchCity extends Component {
         }} variant="filled" />
         <Button
         variant="contained"
+        onClick={() => { console.log('onClick'); }}
         color="primary">
           Search
         </Button>
