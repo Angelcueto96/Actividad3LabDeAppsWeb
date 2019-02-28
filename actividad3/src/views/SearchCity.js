@@ -30,7 +30,8 @@ class SearchCity extends Component {
             <LocationOn />
           </InputAdornment>,
         }} variant="filled" />
-        <Button
+            
+        <Button className="button"
         variant="contained"
         color="primary">
           Search
