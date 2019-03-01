@@ -4,12 +4,11 @@ var CityWeatherAPI = require('../utils/CityWeatherAPI');
 
 module.exports = {
   getCity: function(city) {
-    console.log(city+"received");
+    console.log(city + " received");
     AppDispatcher.handleViewAction({
       actionType: CityWeatherConstants.GET_CITY,
       city: city,
-  });
-
+    });
     CityWeatherAPI.get(city);
   }
 };

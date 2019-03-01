@@ -11,45 +11,37 @@ var _store = {
 };
 
 var CityWeatherStore = ObjectAssign( {}, EventEmitter.prototype, {
-
   addChangeListener: function(cb) {
-    console.log("Add Change Listener called");
     this.on(CHANGE_EVENT, cb);
   },
-
   removeChangeListener: function(cb) {
     this.removeListener(CHANGE_EVENT, cb);
   },
-
   getList: function() {
     return _store;
   }
-
 });
 
 AppDispatcher.register(function(payload) {
-
   var action = payload.action;
-  console.log("payload");
-  console.log(action);
 
   switch(action.actionType) {
-
-    case AppConstants.GET_CITY_RESPONSE:
-      //_store.editing = true;
-      console.log("GET CITY  RESPONSE TRIGGERED");
-      Store.emit(CHANGE_EVENT);
+    case AppConstants.GET_CITY:
+      // Add the data defined in the TodoActions
+      // which the View will pass as a payload
+      _store.editing = true;
+      CityWeatherStore.emit(CHANGE_EVENT);
       break;
 
-    case AppConstants.GET_CITY:
-      var newCity = 'Call '
+    case AppConstants.GET_CITY_RESPONSE:
+      // Get weather from response
+      var days = "day1";
+      /*var newTodo = 'Call '
         + action.response.results[0].user.name.first
         + ' about real estate in '
-        + action.response.results[0].user.location.city;
-
-      // Add the new todo to the list
-      _store.list.push(newTodo);
-      TodoStore.emit(CHANGE_EVENT);
+        + action.response.results[0].user.location.city;*/
+      _store.list.push(days);
+      CityWeatherStore.emit(CHANGE_EVENT);
       break;
 
     default:
