@@ -9,6 +9,7 @@ const App = () => (
     <div>
       <Header />
       <Route exact path="/:city" component={SearchCity} />
+      <Route exact path="/" component={SearchCity} />
       <Footer />
     </div>
   </Router>
