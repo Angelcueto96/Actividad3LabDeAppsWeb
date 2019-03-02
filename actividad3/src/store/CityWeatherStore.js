@@ -31,24 +31,27 @@ AppDispatcher.register(function(payload) {
       break;
 
     case AppConstants.GET_CITY_RESPONSE:
-      // Get weather from response
-      console.log("hi from hell");
       var results = {
         weather: [],
         temperature: []
       }
-
-      for(var i=0; i<5; i++){ //change maybe to display all
-        results.weather.push(action.response.list[i].weather[0]);
-        results.temperature.push(action.response.list[i].main.temp);
-        //console.log(action.response.list[i].weather[0]);
+      const n = action.response.cnt;
+      for(var i=0; i<n; i++){
+        results.weather.push(action.response.list[i].weather[0].description);
+        results.temperature.push(action.response.list[i].main.temp-273.15);
       }
-      var days = "day1";
+      //console.log(results.weather[0]);
+      var days = "";
+      for(i=0; i<n; i++){
+        days = "This day have " + results.weather[i] +
+        ". With a temperature of " + results.temperature[i] + ".";
+        _store.list.push(days);
+      }
       /*var newTodo = 'Call '
         + action.response.results[0].user.name.first
         + ' about real estate in '
         + action.response.results[0].user.location.city;*/
-      _store.list.push(days);
+      //_store.list.push(days);
       CityWeatherStore.emit(CHANGE_EVENT);
       break;
 

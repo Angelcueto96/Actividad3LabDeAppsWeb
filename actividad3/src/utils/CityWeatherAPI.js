@@ -7,7 +7,6 @@ module.exports = {
       .set('Accept', 'application/json')
       .end(function(err, response) {
         if (err) return console.error(err);
-        console.log(response.body);
         CityWeatherServerActions.receiveCity(response.body);
       });
   }

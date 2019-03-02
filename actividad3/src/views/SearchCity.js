@@ -3,6 +3,7 @@ import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import LocationOn from '@material-ui/icons/LocationOn';
 import InputAdornment from '@material-ui/core/InputAdornment';
+import WeatherList from './WeatherList';
 //import Typography from '@material-ui/core/Typography';
 import './SearchCity.scss';
 var CityWeatherActions = require('../actions/CityWeatherActions');
@@ -17,25 +18,27 @@ class SearchCity extends Component{
     };
   }
 
-  componentDidMount() {
-    CityWeatherStore.addChangeListener(this._onChange);
+  componentDidMount(){
+    CityWeatherStore.addChangeListener(this._onChange.bind(this));
   }
 
-  componentWillUnmount() {
-    CityWeatherStore.removeChangeListener(this._onChange);
+  componentWillUnmount(){
+    CityWeatherStore.removeChangeListener(this._onChange.bind(this));
   }
 
-  _onChange() {
-    //this.setState(CityWeatherStore.getList());
+  _onChange(){
+    this.setState({
+      list: CityWeatherStore.getList()
+    });
+    console.log(this.state.list);
   }
 
-  search() {
+  search(){
     console.log("Server called with: " + this.state.name);
     CityWeatherActions.getCity(this.state.name);
   }
 
-  onChangeVal(event) {
-    console.log(event.target.value);
+  onChangeVal(event){
     this.setState({
       name: event.target.value
     });
@@ -43,21 +46,22 @@ class SearchCity extends Component{
 
   render(){
     return(
-      <form noValidate autoComplete="off">
-        <TextField
-          required
-          label="City, Country Code"
-          margin="normal"
-          onChange={this.onChangeVal.bind(this)}
-          value={this.state.name.value}
-          InputProps={{
-            endAdornment:
-              <InputAdornment position="end">
-                <LocationOn />
-              </InputAdornment>,
+      <div>
+        <form noValidate autoComplete="off">
+          <TextField
+            required
+            label="City, Country Code"
+            margin="normal"
+            onChange={this.onChangeVal.bind(this)}
+            value={this.state.name.value}
+            InputProps={{
+              endAdornment:
+                <InputAdornment position="end">
+                  <LocationOn />
+                </InputAdornment>,
+              }
             }
-          }
-          variant="filled" />
+            variant="filled" />
           <Button
             className="button"
             variant="contained"
@@ -66,6 +70,10 @@ class SearchCity extends Component{
               Search
           </Button>
         </form>
+        <div>
+          <WeatherList  list={this.state.list}/>
+        </div>
+      </div>
     )
   }
 }

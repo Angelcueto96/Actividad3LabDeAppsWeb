@@ -4,7 +4,7 @@ class WeatherItem extends Component {
   render() {
     return(
       <tr>
-        <td>what is this</td>
+        <td>{this.props.item}</td>
         <td>
           Weather!
         </td>
