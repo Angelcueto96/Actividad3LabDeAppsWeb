@@ -32,26 +32,35 @@ AppDispatcher.register(function(payload) {
 
     case AppConstants.GET_CITY_RESPONSE:
       var results = {
+        city: '',
+        country: '',
+        temperature: [],
+        pressure: [],
+        humidity: [],
         weather: [],
-        temperature: []
+        wind: [],
       }
       const n = action.response.cnt;
+      results.city = action.response.city.name;
+      results.country = action.response.city.country;
       for(var i=0; i<n; i++){
+        results.temperature.push(Math.round(action.response.list[i].main.temp-273.15));
+        results.pressure.push(action.response.list[i].main.pressure);
+        results.humidity.push(action.response.list[i].main.humidity);
         results.weather.push(action.response.list[i].weather[0].description);
-        results.temperature.push(action.response.list[i].main.temp-273.15);
+        results.wind.push(action.response.list[i].wind.speed);
       }
-      //console.log(results.weather[0]);
       var days = "";
       for(i=0; i<n; i++){
-        days = "This day have " + results.weather[i] +
-        ". With a temperature of " + results.temperature[i] + ".";
+        days = "City: " + results.city + "\n" +
+               "Country: " + results.country + "\n" +
+               "Temperature: " + results.temperature[i] + "°" + "\n" +
+               "Pressure: " + results.pressure[i] + "hPa" + "\n" +
+               "Humidity: " + results.humidity[i] + "%" + "\n" +
+               "Description of the weather: " + results.weather[i] + "\n" +
+               "Wind speed: " + results.wind[i] + "m/s";
         _store.list.push(days);
       }
-      /*var newTodo = 'Call '
-        + action.response.results[0].user.name.first
-        + ' about real estate in '
-        + action.response.results[0].user.location.city;*/
-      //_store.list.push(days);
       CityWeatherStore.emit(CHANGE_EVENT);
       break;
 

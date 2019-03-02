@@ -30,7 +30,6 @@ class SearchCity extends Component{
     this.setState({
       list: CityWeatherStore.getList()
     });
-    console.log(this.state.list);
   }
 
   search(){
@@ -71,7 +70,7 @@ class SearchCity extends Component{
           </Button>
         </form>
         <div>
-          <WeatherList  list={this.state.list}/>
+          <WeatherList list={this.state.list}/>
         </div>
       </div>
     )
