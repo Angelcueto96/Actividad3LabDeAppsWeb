@@ -12,12 +12,9 @@ class SearchCity extends Component{
   constructor(props) {
     super(props);
     this.state = {
-      name: ''
+      name: '',
+      list: CityWeatherStore.getList()
     };
-  }
-
-  getInitialState(){
-    return CityWeatherStore.getList(); //this is empty at first right??
   }
 
   componentDidMount() {
@@ -32,15 +29,9 @@ class SearchCity extends Component{
     //this.setState(CityWeatherStore.getList());
   }
 
-  _search() {
+  search() {
     console.log("Server called with: " + this.state.name);
     CityWeatherActions.getCity(this.state.name);
-  }
-
-  _catchEnter(event) {
-    if(event.keyCode === 13) {
-      this._search();
-    }
   }
 
   onChangeVal(event) {
@@ -59,7 +50,6 @@ class SearchCity extends Component{
           margin="normal"
           onChange={this.onChangeVal.bind(this)}
           value={this.state.name.value}
-          onKeyDown={this._catchEnter}
           InputProps={{
             endAdornment:
               <InputAdornment position="end">
@@ -71,7 +61,7 @@ class SearchCity extends Component{
           <Button
             className="button"
             variant="contained"
-            onClick={this._search.bind(this)}
+            onClick={this.search.bind(this)}
             color="primary">
               Search
           </Button>

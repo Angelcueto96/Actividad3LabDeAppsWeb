@@ -10,7 +10,7 @@ var _store = {
   editing: false
 };
 
-var CityWeatherStore = ObjectAssign( {}, EventEmitter.prototype, {
+var CityWeatherStore = ObjectAssign({}, EventEmitter.prototype, {
   addChangeListener: function(cb) {
     this.on(CHANGE_EVENT, cb);
   },
@@ -24,17 +24,25 @@ var CityWeatherStore = ObjectAssign( {}, EventEmitter.prototype, {
 
 AppDispatcher.register(function(payload) {
   var action = payload.action;
-
   switch(action.actionType) {
     case AppConstants.GET_CITY:
-      // Add the data defined in the TodoActions
-      // which the View will pass as a payload
       _store.editing = true;
       CityWeatherStore.emit(CHANGE_EVENT);
       break;
 
     case AppConstants.GET_CITY_RESPONSE:
       // Get weather from response
+      console.log("hi from hell");
+      var results = {
+        weather: [],
+        temperature: []
+      }
+
+      for(var i=0; i<5; i++){ //change maybe to display all
+        results.weather.push(action.response.list[i].weather[0]);
+        results.temperature.push(action.response.list[i].main.temp);
+        //console.log(action.response.list[i].weather[0]);
+      }
       var days = "day1";
       /*var newTodo = 'Call '
         + action.response.results[0].user.name.first
