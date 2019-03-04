@@ -8,7 +8,7 @@ class WeatherItem extends Component {
 		return(
 
 
-			<Grid item xs={12} sm={4} md={2} className="container">
+			<Grid item xs={6} sm={4} md={2} className="container">
 				<Paper className="paper">
 					<h5 >
 						{this.props.item}
