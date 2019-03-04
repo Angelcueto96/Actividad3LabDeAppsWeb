@@ -19,8 +19,15 @@ class SearchCity extends Component{
 		};
 	}
 
+
 	componentDidMount(){
 		CityWeatherStore.addChangeListener(this._onChange.bind(this));
+		const { city } = this.props.match.params;
+		console.log(this.props.match.params);
+		console.log("The city from url is: " + city);
+		if (city) {
+			this.search(city);
+		}
 	}
 
 	componentWillUnmount(){
@@ -33,9 +40,9 @@ class SearchCity extends Component{
 		});
 	}
 
-	search(){
-		console.log("Server called with: " + this.state.name);
-		CityWeatherActions.getCity(this.state.name);
+	search(city){
+		console.log("Server called with: " + city);
+		CityWeatherActions.getCity(city);
 	}
 
 	onChangeVal(event){
@@ -65,7 +72,12 @@ class SearchCity extends Component{
 					<Button
 						className="button"
 						variant="contained"
-						onClick={this.search.bind(this)}
+						onClick={ ()=> {
+							this.props.history.push('/'+this.state.name);
+							window.location.reload();
+						}
+
+						}
 						color="primary">
 						Search
 					</Button>
@@ -73,9 +85,9 @@ class SearchCity extends Component{
 				</form>
 
 				<div className= "weatherResults">
-					
+
 					<WeatherList list={this.state.list}  />
-				
+
 				</div>
 			</div>
 		)
