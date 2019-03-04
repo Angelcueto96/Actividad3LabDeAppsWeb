@@ -1,8 +1,23 @@
-form{
-  width: 50%;
-  margin-left: 40%;
-    
-    .button{
-        display: block;
-    }
+body{
+	background-image: url(../../src/assets/sky6.jpg);
+	.container{
+		text-align: center;
+		form{
+
+
+
+			.button{
+				display: block;
+				margin: auto;
+			}
+
+		}
+		.weatherResults{
+			text-align: center;
+			
+
+		}
+
+	}
+
 }

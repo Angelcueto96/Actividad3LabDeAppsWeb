@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import WeatherItem from "./WeatherItem";
 //import Typography from '@material-ui/core/Typography';
 
+
 class WeatherList extends Component {
   render() {
     var rows = [];
