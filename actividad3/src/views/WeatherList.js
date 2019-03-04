@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import WeatherItem from "./WeatherItem";
 //import Typography from '@material-ui/core/Typography';
-
+import Grid from '@material-ui/core/Grid';
+import './WeatherList.scss';
 
 class WeatherList extends Component {
   render() {
@@ -17,11 +18,11 @@ class WeatherList extends Component {
 
     return(
       <div className="table-responsive">
-      <table className="table">
-        <tbody>
+			<Grid container spacing={24} >
+      
           {rows}
-        </tbody>
-      </table>
+    	</Grid>
+			
       </div>
     )
   }

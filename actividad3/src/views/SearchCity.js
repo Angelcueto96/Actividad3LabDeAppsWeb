@@ -4,6 +4,7 @@ import TextField from '@material-ui/core/TextField';
 import LocationOn from '@material-ui/icons/LocationOn';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import WeatherList from './WeatherList';
+
 //import Typography from '@material-ui/core/Typography';
 import './SearchCity.scss';
 var CityWeatherActions = require('../actions/CityWeatherActions');
@@ -72,7 +73,9 @@ class SearchCity extends Component{
 				</form>
 
 				<div className= "weatherResults">
+					
 					<WeatherList list={this.state.list}  />
+				
 				</div>
 			</div>
 		)

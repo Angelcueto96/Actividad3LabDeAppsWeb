@@ -7,21 +7,17 @@ class WeatherItem extends Component {
 	render() {
 		return(
 
-			<tr>
 
-				<td>
-					<Grid item xs={12} sm={12}>
+			<Grid item xs={12} sm={4} md={2} className="container">
+				<Paper className="paper">
+					<h5 >
+						{this.props.item}
+					</h5>
 
-						<Paper className="paper">
-							<h5 >
-							{this.props.item}
-							</h5>
-							
 
-						</Paper>
-					</Grid>
-				</td>
-			</tr>
+				</Paper>
+
+			</Grid>
 
 		);
 	}
