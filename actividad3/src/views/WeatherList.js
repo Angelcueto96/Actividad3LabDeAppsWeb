@@ -12,17 +12,17 @@ class WeatherList extends Component {
         rows.push(<WeatherItem key={index} index={index} item={item} />);
       });
     }
-    if(this.props.editing){
-      console.log(this.props.editing);
+    if(this.props.name) {
+      this.props.list.name.map(function(item, index) {
+        rows.push(<WeatherItem key={index} index={index} item={item} />);
+      });
     }
 
     return(
       <div className="table-responsive">
-			<Grid container spacing={24} >
-      
+  			<Grid container spacing={24} >
           {rows}
-    	</Grid>
-			
+      	</Grid>
       </div>
     )
   }

@@ -4,7 +4,6 @@ import TextField from '@material-ui/core/TextField';
 import LocationOn from '@material-ui/icons/LocationOn';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import WeatherList from './WeatherList';
-
 //import Typography from '@material-ui/core/Typography';
 import './SearchCity.scss';
 var CityWeatherActions = require('../actions/CityWeatherActions');
@@ -18,7 +17,6 @@ class SearchCity extends Component{
 			list: CityWeatherStore.getList()
 		};
 	}
-
 
 	componentDidMount(){
 		CityWeatherStore.addChangeListener(this._onChange.bind(this));
@@ -54,8 +52,10 @@ class SearchCity extends Component{
 	render(){
 		return(
 			<div className="container">
+				<img src={require('../assets/weather.png')} alt="weather"/>
 				<form noValidate autoComplete="off">
 					<TextField
+						className="city-input"
 						required
 						label="City, Country Code"
 						margin="normal"
@@ -63,31 +63,26 @@ class SearchCity extends Component{
 						value={this.state.name.value}
 						InputProps={{
 							endAdornment:
-							<InputAdornment position="end">
-								<LocationOn />
-							</InputAdornment>,
+								<InputAdornment position="end">
+									<LocationOn />
+								</InputAdornment>,
+							}
 						}
-								   }
 						variant="filled" />
 					<Button
 						className="button"
 						variant="contained"
 						onClick={ ()=> {
-							this.props.history.push('/'+this.state.name);
-							window.location.reload();
-						}
-
+								this.props.history.push('/'+this.state.name);
+								window.location.reload();
+							}
 						}
 						color="primary">
 						Search
 					</Button>
-
 				</form>
-
 				<div className= "weatherResults">
-
-					<WeatherList list={this.state.list}  />
-
+					<WeatherList list={this.state.list} />
 				</div>
 			</div>
 		)

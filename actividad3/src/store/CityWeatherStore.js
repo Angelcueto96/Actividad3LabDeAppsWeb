@@ -39,7 +39,7 @@ AppDispatcher.register(function(payload) {
         humidity: [],
         weather: [],
         wind: [],
-		date: [],  
+		date: [],
       }
       const n = action.response.cnt;
       //const n = 5;
@@ -51,18 +51,17 @@ AppDispatcher.register(function(payload) {
         results.humidity.push(action.response.list[i].main.humidity);
         results.weather.push(action.response.list[i].weather[0].description);
         results.wind.push(action.response.list[i].wind.speed);
-		results.date.push(action.response.list[i].dt_txt);  
+		results.date.push(action.response.list[i].dt_txt);
       }
       var days = "";
       for(i=0; i<n; i++){
-        days = "City: " + results.city + "\n" +
-               "Country: " + results.country + "\n" +
-				"Date: " + results.date[i] + "\n" +
-               "Temperature: " + results.temperature[i] + "°" + "\n" +
-               "Pressure: " + results.pressure[i] + "hPa" + "\n" +
-               "Humidity: " + results.humidity[i] + "%" + "\n" +
-               "Description of the weather: " + results.weather[i] + "\n" +
-               "Wind speed: " + results.wind[i] + "m/s";
+        days = "In the city of "+ results.city + " in " +
+               results.country + " on " + results.date[i] +
+               ", the temperature is " + results.temperature[i] + "°C, " +
+               "with " + results.weather[i] + ". " +
+               "The pressure is " + results.pressure[i] + "hPa, " +
+               " humidity is " + results.humidity[i] + "%, " +
+               "and the wind speed is " + results.wind[i] + "m/s.";
         _store.list.push(days);
       }
       CityWeatherStore.emit(CHANGE_EVENT);

@@ -1,25 +1,58 @@
-body{
-	background-image: url(../../src/assets/sky.jpg);
-	.container{
-		text-align: center;
-		form{
+body {
+	background-color: #e9f6fb;
+}
 
+.container {
+	text-align: center;
+	img{
+		margin-top: 10%;
+	}
+	.weatherResults {
+		padding: 3%;
+		text-align: justify;
+		margin: auto;
+	}
+	.items{
+		text-align: left;
+	}
+}
 
+form {
+	margin-bottom: 5%;
+	.city-input {
+		margin-top: 2%;
+		width: 50%;
+	}
+	.button {
+		display: block;
+		margin-top: 2%;
+		margin-left: 46%;
+		background-color: #007db9;
+	}
+}
 
-			.button{
-				display: block;
-				margin: auto;
-			}
-
+@media screen and (min-width: 0px) and (max-width: 599px) { // Mobile
+	.container {
+		img{
+			margin-top: 10%;
 		}
-		.weatherResults{
-			text-align: center;
-			margin:auto;
-			
-
+		.weatherResults {
+			padding: 3%;
+			text-align: justify;
+			margin: auto;
 		}
-		
-
 	}
 
+	form {
+		margin-top: 5%;
+		margin-bottom: 5%;
+		.city-input {
+			margin-top: 8%;
+			width: 90%;
+		}
+		.button {
+			margin-top: 5%;
+			margin-left: 39%;
+		}
+	}
 }
